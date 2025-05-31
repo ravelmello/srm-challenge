@@ -3,6 +3,7 @@ package com.ravel.teste.srm.service;
 import com.ravel.teste.srm.dto.ChangeRequestDTO;
 import com.ravel.teste.srm.dto.ChangeResponseDTO;
 import com.ravel.teste.srm.entity.Coin;
+import com.ravel.teste.srm.entity.ExchangeTax;
 import com.ravel.teste.srm.entity.Product;
 import com.ravel.teste.srm.repository.CoinRepository;
 import com.ravel.teste.srm.repository.ExchangeTaxRepository;
@@ -13,6 +14,7 @@ import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
 import java.math.BigDecimal;
+import java.time.LocalDate;
 import java.util.Map;
 
 @Service
@@ -35,14 +37,38 @@ public class ChangeService {
         this.strategyMap = strategyMap;
     }
 
-    @Transactional
+
     public ChangeResponseDTO calculateProductValueOnDestiny(ChangeRequestDTO requestDTO) {
 
         Product product = getProductByID(requestDTO.getProductID());
         ChangeStrategy strategy = selectStrategy(product);
-       // Coin originCoin =
+        Coin originCoin = searchCoinOrigin(requestDTO.getOriginCoin());
+        Coin destinyCoin = searchCoinOrigin(requestDTO.getDestinyCoin());
+        ExchangeTax exchangeTax = searchTaxForProduct(requestDTO.getProductID(), requestDTO.getOriginCoin(), requestDTO.getDestinyCoin());
 
-        return new ChangeResponseDTO();
+        BigDecimal convertedAmount = strategy.change(requestDTO.getAmount(), exchangeTax);
+
+        return new ChangeResponseDTO(
+            convertedAmount,
+                exchangeTax.getTax(),
+                product.getName(),
+                originCoin.getName(),
+                destinyCoin.getName(),
+                LocalDate.now()
+        );
+    }
+
+    private ExchangeTax searchTaxForProduct(Long productID, String originCoin, String destinyCoin) {
+        return exchangeTaxRepository.searchLastTaxByProduct(productID, originCoin, destinyCoin).orElseThrow(
+                () -> new IllegalArgumentException("Not found tax for product " + productID)
+        );
+    }
+
+    private Coin searchCoinOrigin(String originCoin) {
+        return coinRepository.findByName(originCoin).orElseThrow(() ->
+                new IllegalArgumentException("Coin not found with Name: " + originCoin)
+        );
+
     }
 
 

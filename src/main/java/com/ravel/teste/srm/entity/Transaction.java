@@ -20,6 +20,9 @@ public class Transaction {
     @ManyToOne
     private Coin destinyCoin;
 
+    @ManyToOne
+    private Kingdom kingdom;
+
     private BigDecimal amountOrigin;
     private BigDecimal amountDestiny;
 
