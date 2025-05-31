@@ -17,12 +17,10 @@ public class KingdomController {
 
     private final KingdomService kingdomService;
 
-
     public KingdomController(KingdomService kingdomService) {
         this.kingdomService = kingdomService;
 
     }
-
 
     @PostMapping
     public ResponseEntity<?> save(@RequestBody KingdomDTO kingdomDTO) {

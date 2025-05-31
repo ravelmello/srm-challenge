@@ -6,6 +6,7 @@ import com.ravel.teste.srm.repository.KingdomRepository;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
+import java.util.Optional;
 
 @Service
 public class KingdomService {
@@ -17,7 +18,6 @@ public class KingdomService {
 
 
     public void saveKingdom(KingdomDTO kingdomDTO) throws Exception {
-
         if(verifyIfKingdomExists(kingdomDTO.getKingdom())){
             throw new Exception();
         }
@@ -34,5 +34,9 @@ public class KingdomService {
 
     public List<Kingdom> getAll() {
         return kingdomRepository.findAll();
+    }
+
+    public Kingdom getKingdomByName(String kingdomName) {
+        return kingdomRepository.getKingdomByKingdomName(kingdomName);
     }
 }

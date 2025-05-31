@@ -13,4 +13,6 @@ public interface KingdomRepository extends JpaRepository<Kingdom, Integer> {
 
 
     List<Kingdom> findAll();
+
+    Kingdom getKingdomByKingdomName(String kingdomName);
 }

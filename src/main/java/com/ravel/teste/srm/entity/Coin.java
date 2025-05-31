@@ -15,4 +15,6 @@ public class Coin {
     @OneToOne
     private Kingdom kingdom;
 
+    private String symbol;
+
 }
