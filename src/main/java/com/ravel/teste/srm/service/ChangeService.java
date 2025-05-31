@@ -11,7 +11,7 @@ import com.ravel.teste.srm.repository.ProductRepository;
 import com.ravel.teste.srm.repository.TransactionRepository;
 import com.ravel.teste.srm.strategy.ChangeStrategy;
 import org.springframework.stereotype.Service;
-import org.springframework.transaction.annotation.Transactional;
+
 
 import java.math.BigDecimal;
 import java.time.LocalDate;
@@ -70,7 +70,6 @@ public class ChangeService {
         );
 
     }
-
 
     private Product getProductByID(Long productID) {
         return productRepository.findById(productID)
