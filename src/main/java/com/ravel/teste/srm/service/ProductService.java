@@ -3,6 +3,7 @@ package com.ravel.teste.srm.service;
 
 import com.ravel.teste.srm.dto.ProductDTO;
 import com.ravel.teste.srm.entity.Product;
+import com.ravel.teste.srm.mapper.ProductMapper;
 import com.ravel.teste.srm.repository.ProductRepository;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -13,14 +14,17 @@ import org.springframework.transaction.annotation.Transactional;
 import org.springframework.web.bind.annotation.RequestBody;
 
 import java.util.List;
+import java.util.stream.Collectors;
 
 @Service
 public class ProductService {
     private final ProductRepository productRepository;
     private static final Logger LOGGER = LoggerFactory.getLogger(ProductService.class);
+    private final ProductMapper productMapper;
 
-    public ProductService(ProductRepository productRepository) {
+    public ProductService(ProductRepository productRepository, ProductMapper productMapper) {
         this.productRepository = productRepository;
+        this.productMapper = productMapper;
     }
 
     @Transactional(rollbackFor = Exception.class)
@@ -41,8 +45,8 @@ public class ProductService {
         return productRepository.existsProductByName(productName);
     }
 
-    public List<Product>findAllProducts() {
-        return productRepository.findAll();
+    public List<ProductDTO>findAllProducts() {
+        return productRepository.findAll().stream().map(productMapper::toDTO).collect(Collectors.toList());
     }
 
     public Product findByName(String productName) {

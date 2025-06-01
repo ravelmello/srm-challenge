@@ -16,6 +16,7 @@ import org.springframework.stereotype.Service;
 
 import java.time.LocalDate;
 import java.util.List;
+import java.util.Optional;
 import java.util.stream.Collectors;
 
 @Service
@@ -30,7 +31,7 @@ public class ExchangeTaxService {
     public ExchangeTaxService(ExchangeTaxRepository exchangeTaxRepository,
                               CoinService coinService,
                               ProductService productService,
-                              CoinRepository coinRepository, ExchangeTaxMapper exchangeTaxMapper) {
+                              ExchangeTaxMapper exchangeTaxMapper) {
         this.exchangeTaxRepository = exchangeTaxRepository;
         this.coinService = coinService;
         this.productService = productService;
@@ -68,5 +69,9 @@ public class ExchangeTaxService {
 
     public List<ExchangeTaxDTO> getTaxesList() {
         return exchangeTaxRepository.findAll().stream().map(exchangeTaxMapper::toDTO).collect(Collectors.toList());
+    }
+
+    public ExchangeTax getLatestTax(Long productID, String originCoin, String destinyCoin) {
+        return exchangeTaxRepository.searchLastTaxByProduct(productID, originCoin, destinyCoin);
     }
 }

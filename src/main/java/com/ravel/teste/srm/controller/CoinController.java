@@ -6,6 +6,10 @@ import com.ravel.teste.srm.entity.Coin;
 import com.ravel.teste.srm.repository.CoinRepository;
 import com.ravel.teste.srm.service.CoinService;
 import com.ravel.teste.srm.utils.ErrorResponse;
+import io.swagger.v3.oas.annotations.Operation;
+import io.swagger.v3.oas.annotations.responses.ApiResponse;
+import io.swagger.v3.oas.annotations.responses.ApiResponses;
+import io.swagger.v3.oas.annotations.tags.Tag;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.http.HttpStatus;
@@ -15,6 +19,7 @@ import org.springframework.web.bind.annotation.*;
 import java.util.List;
 
 
+@Tag(name="Coin", description = "Endpoints to define one coin of a Kingdom")
 @RestController
 @RequestMapping("/v1/coin")
 public class CoinController {
@@ -27,6 +32,13 @@ public class CoinController {
         this.coinService = coinService;
     }
 
+
+    @Operation(summary = "Make a creation of a coin", description = "")
+    @ApiResponses(value = {
+            @ApiResponse(responseCode = "200", description = "If the insertion is successfully"),
+            @ApiResponse(responseCode = "404", description = "Kingdom not exists"),
+            @ApiResponse(responseCode = "409", description = "Coin already exists in the kingdom")
+    })
     @PostMapping
     public ResponseEntity<?> saveCoin(@RequestBody CoinDTO coinDTO) {
         try {

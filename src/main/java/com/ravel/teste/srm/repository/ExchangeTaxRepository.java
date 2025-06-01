@@ -17,7 +17,7 @@ public interface ExchangeTaxRepository extends JpaRepository<ExchangeTax, Long> 
                 AND LOWER(tax.destiny.name) = LOWER(:destinationName)
                     ORDER BY tax.taxDate DESC
     """)
-    Optional<ExchangeTax> searchLastTaxByProduct(@Param("productID") Long productID,
+    ExchangeTax searchLastTaxByProduct(@Param("productID") Long productID,
                                                  @Param("originName") String originCoin,
                                                  @Param("destinationName") String destinyCoin);
 }

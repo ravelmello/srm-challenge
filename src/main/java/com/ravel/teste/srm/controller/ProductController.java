@@ -31,8 +31,8 @@ public class ProductController {
     }
 
     @GetMapping
-    public ResponseEntity<List<Product>> findAllProducts () {
-        List<Product> products = service.findAllProducts();
+    public ResponseEntity<List<ProductDTO>> findAllProducts () {
+        List<ProductDTO> products = service.findAllProducts();
         return ResponseEntity.status(HttpStatus.OK).body(products);
     }
 
