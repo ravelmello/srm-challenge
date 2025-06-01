@@ -53,6 +53,10 @@ public class CoinController {
         return ResponseEntity.status(HttpStatus.CREATED).build();
     }
 
+    @Operation(summary = "Recovery a definition of a Coin", description = "")
+    @ApiResponses(value = {
+            @ApiResponse(responseCode = "200", description = "Body is empty, if not found a list of coins"),
+    })
     @GetMapping
     public ResponseEntity<List<Coin>> getAllCoins() {
         List<Coin> coins = coinService.getAllCoins();
