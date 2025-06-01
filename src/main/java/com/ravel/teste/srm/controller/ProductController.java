@@ -6,10 +6,7 @@ import com.ravel.teste.srm.service.ProductService;
 import com.ravel.teste.srm.utils.ErrorResponse;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
@@ -23,7 +20,7 @@ public class ProductController {
     }
 
     @PostMapping
-    public ResponseEntity<?> saveProduct(ProductDTO productDTO) {
+    public ResponseEntity<?> saveProduct(@RequestBody ProductDTO productDTO) {
         try {
             service.saveProduct(productDTO);
         } catch (Exception e) {

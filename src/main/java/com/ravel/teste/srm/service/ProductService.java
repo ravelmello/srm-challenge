@@ -24,7 +24,7 @@ public class ProductService {
     }
 
     @Transactional(rollbackFor = Exception.class)
-    public void saveProduct(@RequestBody ProductDTO productDTO) throws Exception {
+    public void saveProduct(ProductDTO productDTO) throws Exception {
         if(verifyIfProductExists(productDTO.getProductName())){
             throw new Exception();
         }
@@ -43,5 +43,9 @@ public class ProductService {
 
     public List<Product>findAllProducts() {
         return productRepository.findAll();
+    }
+
+    public Product findByName(String productName) {
+        return productRepository.findByName(productName);
     }
 }

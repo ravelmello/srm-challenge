@@ -65,10 +65,7 @@ public class ChangeService {
     }
 
     private Coin searchCoinOrigin(String originCoin) {
-        return coinRepository.findByName(originCoin).orElseThrow(() ->
-                new IllegalArgumentException("Coin not found with Name: " + originCoin)
-        );
-
+       return null;
     }
 
     private Product getProductByID(Long productID) {
