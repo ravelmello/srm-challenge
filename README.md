@@ -53,7 +53,7 @@ Projeto desenvolvido para conversão de moedas entre reinos fictícios, utilizan
 | GET    | `/v1/transaction/search-full`    | Lista as transações completas          |
 
 > A documentação completa pode ser acessada via Swagger em:  
-> `http://localhost:8080/api/swagger-ui.html`
+> `http://localhost:8080/api/swagger-ui/index.html#/`
 
 ---
 
