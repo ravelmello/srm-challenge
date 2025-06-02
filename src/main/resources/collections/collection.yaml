@@ -1,0 +1,445 @@
+type: collection.insomnia.rest/5.0
+name: SRM collection
+meta:
+  id: wrk_432e98c047db4b23abc33f18af26c4e8
+  created: 1748655381570
+  modified: 1748655381570
+collection:
+  - name: Product
+    meta:
+      id: fld_8fc52544b3754d18a319329604ac3b29
+      created: 1748715525048
+      modified: 1748715525048
+      sortKey: -1748715525048
+    children:
+      - url: "{{ _[''].server_url }}/v1/product"
+        name: CreateProductHidromel
+        meta:
+          id: req_84d64b17d90b4bae8339a57145b47d1f
+          created: 1748715564994
+          modified: 1748734524126
+          isPrivate: false
+          sortKey: -1748715564994
+        method: POST
+        body:
+          mimeType: application/json
+          text: |-
+            {
+            	"productName": "Hidromel",
+            	"price":15.25
+            }
+        headers:
+          - name: Content-Type
+            value: application/json
+          - name: User-Agent
+            value: insomnia/11.1.0
+        settings:
+          renderRequestBody: true
+          encodeUrl: true
+          followRedirects: global
+          cookies:
+            send: true
+            store: true
+          rebuildPath: true
+      - url: "{{ _[''].server_url }}/v1/product"
+        name: GetAllProducts
+        meta:
+          id: req_e9e4523fa6814dc8b360ab5e551f7580
+          created: 1748718534206
+          modified: 1748822155758
+          isPrivate: false
+          sortKey: -1748718534206
+        method: GET
+        headers:
+          - name: User-Agent
+            value: insomnia/11.1.0
+        settings:
+          renderRequestBody: true
+          encodeUrl: true
+          followRedirects: global
+          cookies:
+            send: true
+            store: true
+          rebuildPath: true
+      - url: "{{ _[''].server_url }}/v1/product"
+        name: CreateProductElfWood
+        meta:
+          id: req_1a635536e0244f209210cd853ebd6de0
+          created: 1748734535800
+          modified: 1748734548602
+          isPrivate: false
+          sortKey: -1748715559543
+        method: POST
+        body:
+          mimeType: application/json
+          text: |-
+            {
+            	"productName": "Elf Wood",
+            	"price":5
+            }
+        headers:
+          - name: Content-Type
+            value: application/json
+          - name: User-Agent
+            value: insomnia/11.1.0
+        settings:
+          renderRequestBody: true
+          encodeUrl: true
+          followRedirects: global
+          cookies:
+            send: true
+            store: true
+          rebuildPath: true
+      - url: "{{ _[''].server_url }}/v1/product"
+        name: CreateProductDraugSkin
+        meta:
+          id: req_1646c9bbd3fc49b18b6bcbd04e3a9333
+          created: 1748734662176
+          modified: 1748740712594
+          isPrivate: false
+          sortKey: -1748715556817.5
+        method: POST
+        body:
+          mimeType: application/json
+          text: |-
+            {
+            	"productName": "Draug Skinn",
+            	"price":25
+            }
+        headers:
+          - name: Content-Type
+            value: application/json
+          - name: User-Agent
+            value: insomnia/11.1.0
+        settings:
+          renderRequestBody: true
+          encodeUrl: true
+          followRedirects: global
+          cookies:
+            send: true
+            store: true
+          rebuildPath: true
+  - name: Kingdom
+    meta:
+      id: fld_abc2a273a24e48afb39f0c07f08a0749
+      created: 1748715537265
+      modified: 1748715537265
+      sortKey: -1748715537265
+    children:
+      - url: "{{ _[''].server_url }}/v1/kingdom"
+        name: CreateKingdom
+        meta:
+          id: req_a420d0914cb54dc78519b463e27a94d8
+          created: 1748655390825
+          modified: 1748715559880
+          isPrivate: false
+          sortKey: -1748715554092
+        method: POST
+        body:
+          mimeType: application/json
+          text: |-
+            {
+            	"kingdom": "SRM",
+            	"description": "A Strong Kingdom of Technology"
+            }
+        headers:
+          - name: Content-Type
+            value: application/json
+          - name: User-Agent
+            value: insomnia/11.1.0
+        settings:
+          renderRequestBody: true
+          encodeUrl: true
+          followRedirects: global
+          cookies:
+            send: true
+            store: true
+          rebuildPath: true
+      - url: "{{ _[''].server_url }}/v1/kingdom"
+        name: GetKingdomE
+        meta:
+          id: req_da17bed2b0fa45a0afeffd9ab46eb881
+          created: 1748657502831
+          modified: 1748822359606
+          isPrivate: false
+          sortKey: -1748715553992
+        method: GET
+        headers:
+          - name: User-Agent
+            value: insomnia/11.1.0
+        settings:
+          renderRequestBody: true
+          encodeUrl: true
+          followRedirects: global
+          cookies:
+            send: true
+            store: true
+          rebuildPath: true
+      - url: "{{ _[''].server_url }}/v1/kingdom"
+        name: CreateKingdomErebor
+        meta:
+          id: req_c77924bfd3d54aafb194c97afbadb6ba
+          created: 1748718019430
+          modified: 1748718039939
+          isPrivate: false
+          sortKey: -1748715554042
+        method: POST
+        body:
+          mimeType: application/json
+          text: |-
+            {
+            	"kingdom": "Erebor",
+            	"description": "A Kingdom of Dwarfs"
+            }
+        headers:
+          - name: Content-Type
+            value: application/json
+          - name: User-Agent
+            value: insomnia/11.1.0
+        settings:
+          renderRequestBody: true
+          encodeUrl: true
+          followRedirects: global
+          cookies:
+            send: true
+            store: true
+          rebuildPath: true
+  - name: Coin
+    meta:
+      id: fld_4c47336ef5c146c98efc280a217bfbc6
+      created: 1748717396290
+      modified: 1748717396290
+      sortKey: -1748717396290
+    children:
+      - url: "{{ _[''].server_url }}/v1/coin"
+        name: CreateRealGoldCoin
+        meta:
+          id: req_daa8fb8c53a447119e28faee90b45a7e
+          created: 1748717399818
+          modified: 1748717547120
+          isPrivate: false
+          sortKey: -1748717399818
+        method: POST
+        body:
+          mimeType: application/json
+          text: |-
+            {
+            	"nameCoin":"Real Gold",
+            	"kingdom":"SRM",
+            	"symbol":"RG$"
+            }
+        headers:
+          - name: Content-Type
+            value: application/json
+          - name: User-Agent
+            value: insomnia/11.1.0
+        settings:
+          renderRequestBody: true
+          encodeUrl: true
+          followRedirects: global
+          cookies:
+            send: true
+            store: true
+          rebuildPath: true
+      - url: "{{ _[''].server_url }}/v1/coin"
+        name: CreateTibarCoin
+        meta:
+          id: req_e0a5a02773824071b994701957580181
+          created: 1748717919058
+          modified: 1748718077017
+          isPrivate: false
+          sortKey: -1748716482406
+        method: POST
+        body:
+          mimeType: application/json
+          text: |-
+            {
+            	"nameCoin":"Tibar",
+            	"kingdom":"Erebor",
+            	"symbol":"TR$"
+            }
+        headers:
+          - name: Content-Type
+            value: application/json
+          - name: User-Agent
+            value: insomnia/11.1.0
+        settings:
+          renderRequestBody: true
+          encodeUrl: true
+          followRedirects: global
+          cookies:
+            send: true
+            store: true
+          rebuildPath: true
+      - url: "{{ _[''].server_url }}/v1/coin"
+        name: getAllCoins
+        meta:
+          id: req_3d01fbe34f994441b6d0d163d0f83d21
+          created: 1748730010530
+          modified: 1748807447411
+          isPrivate: false
+          sortKey: -1748730010530
+        method: GET
+        headers:
+          - name: User-Agent
+            value: insomnia/11.1.0
+        settings:
+          renderRequestBody: true
+          encodeUrl: true
+          followRedirects: global
+          cookies:
+            send: true
+            store: true
+          rebuildPath: true
+  - name: Taxes
+    meta:
+      id: fld_eaefd34adef5476d982e3459dd51709a
+      created: 1748732507136
+      modified: 1748732507136
+      sortKey: -1748732507136
+    children:
+      - url: "{{ _[''].server_url }}/v1/exchange"
+        name: CreateNewTax
+        meta:
+          id: req_6c190455420e40b082117b94b50f83c7
+          created: 1748732510618
+          modified: 1748820242920
+          isPrivate: false
+          sortKey: -1748732510618
+        method: POST
+        body:
+          mimeType: application/json
+          text: |-
+            {
+            	"originCoinName":"Tibar",
+            	"destinationCoinName":"Real Gold",
+            	"productName":"Hidromel",
+            	"taxRate":0.4
+            }
+        headers:
+          - name: Content-Type
+            value: application/json
+          - name: User-Agent
+            value: insomnia/11.1.0
+        settings:
+          renderRequestBody: true
+          encodeUrl: true
+          followRedirects: global
+          cookies:
+            send: true
+            store: true
+          rebuildPath: true
+      - url: "{{ _[''].server_url }}/v1/exchange"
+        name: getAllExchangeTaxes
+        meta:
+          id: req_32ee71e692ba4a5d84443c908e18c9c2
+          created: 1748740281118
+          modified: 1748808943560
+          isPrivate: false
+          sortKey: -1748740281118
+        method: GET
+        headers:
+          - name: User-Agent
+            value: insomnia/11.1.0
+        settings:
+          renderRequestBody: true
+          encodeUrl: true
+          followRedirects: global
+          cookies:
+            send: true
+            store: true
+          rebuildPath: true
+  - name: Transaction
+    meta:
+      id: fld_960f762a5b444ea191e5ce5a2acff5ad
+      created: 1748740373018
+      modified: 1748806166822
+      sortKey: -1748740373018
+    children:
+      - url: "{{ _[''].server_url }}/v1/transaction"
+        name: CreateNewTransaction
+        meta:
+          id: req_5e93dcb51f324e6c810022deb5d269a0
+          created: 1748806171056
+          modified: 1748821655279
+          isPrivate: false
+          sortKey: -1748806171056
+        method: POST
+        body:
+          mimeType: application/json
+          text: |-
+            {
+            	"product":"Hidromel",
+            	"originCoin": "Tibar",
+            	"destinationCoin": "Real Gold",
+            	"kingdom": "SRM"
+            }
+        headers:
+          - name: Content-Type
+            value: application/json
+          - name: User-Agent
+            value: insomnia/11.1.0
+        settings:
+          renderRequestBody: true
+          encodeUrl: true
+          followRedirects: global
+          cookies:
+            send: true
+            store: true
+          rebuildPath: true
+      - url: "{{ _[''].server_url }}/v1/transaction/search"
+        name: findAll
+        meta:
+          id: req_0ff3074130f2492096ac04bde42ff84f
+          created: 1748812049607
+          modified: 1748812090540
+          isPrivate: false
+          sortKey: -1748812049607
+        method: GET
+        headers:
+          - name: User-Agent
+            value: insomnia/11.1.0
+        settings:
+          renderRequestBody: true
+          encodeUrl: true
+          followRedirects: global
+          cookies:
+            send: true
+            store: true
+          rebuildPath: true
+      - url: "{{ _[''].server_url }}/v1/transaction/search-compact"
+        name: searchCompact
+        meta:
+          id: req_71d6fc5fadbd41b99ea611b8d52b992d
+          created: 1748814043646
+          modified: 1748821726217
+          isPrivate: false
+          sortKey: -1748814043646
+        method: GET
+        headers:
+          - name: User-Agent
+            value: insomnia/11.1.0
+        settings:
+          renderRequestBody: true
+          encodeUrl: true
+          followRedirects: global
+          cookies:
+            send: true
+            store: true
+          rebuildPath: true
+cookieJar:
+  name: Default Jar
+  meta:
+    id: jar_421d16d81721f0d7fde09db9189a2117756938d0
+    created: 1748655381588
+    modified: 1748655381588
+environments:
+  name: Base Environment
+  meta:
+    id: env_421d16d81721f0d7fde09db9189a2117756938d0
+    created: 1748655381582
+    modified: 1748655675750
+    isPrivate: false
+  data:
+    "":
+      server_url: http://localhost:8080/api
