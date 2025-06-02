@@ -8,7 +8,6 @@ import com.ravel.teste.srm.strategy.ChangeStrategy;
 import jakarta.transaction.Transactional;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
-import org.springframework.dao.TransientDataAccessException;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.PageImpl;
 import org.springframework.data.domain.PageRequest;
@@ -16,12 +15,11 @@ import org.springframework.retry.annotation.Backoff;
 import org.springframework.retry.annotation.Retryable;
 import org.springframework.stereotype.Service;
 
-
 import java.math.BigDecimal;
 import java.time.LocalDateTime;
 import java.util.List;
 import java.util.Map;
-import java.util.stream.Collectors;
+
 
 
 @Service
@@ -55,7 +53,6 @@ public class TransactionService {
 
     @Retryable(
             exceptionExpression = "#{@retryExceptionEvaluator.isRetryableException(#root.cause)}",
-            maxAttempts = 3,
             backoff = @Backoff(delay = 1000)
     )
     @Transactional
@@ -137,7 +134,8 @@ public class TransactionService {
     private Product getProductByName(String productID) {
         return productService.findByName(productID);
     }
-    private ChangeStrategy selectStrategy(Product product) {
+
+    public   ChangeStrategy selectStrategy(Product product) {
         return strategyMap.getOrDefault(product.getName().toUpperCase(), strategyMap.get("DEFAULT_TAX"));
     }
 
